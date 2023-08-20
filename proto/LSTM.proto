@@ -1,0 +1,13 @@
+[proto]
+lstm_lay=str_list
+lstm_drop=str_list
+lstm_use_laynorm_inp=bool
+lstm_use_batchnorm_inp=bool
+lstm_use_laynorm=bool_list
+lstm_use_batchnorm=bool_list
+lstm_bidir=bool
+lstm_act=str_list
+lstm_orthinit=bool
+
+
+
