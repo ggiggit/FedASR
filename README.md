@@ -44,7 +44,7 @@ steps/nnet/align.sh --nj 4 data-fmllr-tri3/test data/lang exp/dnn4_pretrain-dbn_
 
 To avoid errors make sure that all the paths in the cfg file exist. **Please, avoid using paths containing bash variables since paths are read literally and are not automatically expanded** (e.g., use /home/mirco/kaldi-trunk/egs/timit/s5/exp/dnn4_pretrain-dbn_dnn_ali instead of $KALDI_ROOT/egs/timit/s5/exp/dnn4_pretrain-dbn_dnn_ali)
 
-7. Run the ASR experiment by federated learning:
+7. Run the ASR experiment in the way of federated learning:
 ```
 python run_fed_exp.py cfg/TIMIT_baselines/TIMIT_fed.cfg
 ```
