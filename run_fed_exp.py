@@ -1,8 +1,7 @@
 ##########################################################
 # FedASR v.0.1
-# Mirco Ravanelli, Titouan Parcollet
-# Mila, University of Montreal
-# October 2018
+# WanZixiang, Beijing University of Posts and Telecommunications
+# August 2023
 ##########################################################
 
 
@@ -94,6 +93,13 @@ def create_nns(config_file):
             inp_dim = inp_out_dict[inp2][-1]
             module = importlib.import_module(config[arch_dict[inp1][0]]["arch_library"])
             nn_class = getattr(module, config[arch_dict[inp1][0]]["arch_class"])
+            # Here may report some errors of lacking some key
+            # It's OK. Just give the config some key-value. 
+            # Because the nns is used to store weights of models, not for running.
+            cls = ["GRU","LSTM","logMelFb","channel_averaging","liGRU","minimalGRU","RNN"]
+            if config[arch_dict[inp1][0]]["arch_class"] in cls:
+                config[arch_dict[inp1][0]]["use_cuda"]="True"
+                config[arch_dict[inp1][0]]["to_do"]="Train"
             net = nn_class(config[arch_dict[inp1][0]], inp_dim)
             nns[arch_dict[inp1][1]] = net
             out_dim = net.out_dim
